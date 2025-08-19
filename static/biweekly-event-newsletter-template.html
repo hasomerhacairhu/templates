@@ -108,6 +108,7 @@ color:rgb(8, 160, 202);
                                     <font style="font-size: 18px;">{{ items.[0].title }}​</font>
                                 <br></h3>
                                 <p><font class="text-o-color-1">{{ items.[0].start_date }} - {{ items.[0].start_time }}​</font><br></p>
+                                <p><font class="text-o-color-1">{{ items.[0].venue }}​</font><br></p>
                                 <p>{{ items.[0].full_description }}</p>
                                 <p><a href="{{ items.[0].event_link }}" target="_blank" class="btn btn-primary">Facebook esemény</a>&nbsp;<br></p>
                             </div>
@@ -121,6 +122,7 @@ color:rgb(8, 160, 202);
                                     <font style="font-size: 18px"><font style="font-size: 18px;">{{ items.[1].title }}​</font>
                                 <br>
                                 </font></h3><p><font class="text-o-color-1">{{ items.[1].start_date }} - {{ items.[1].start_time }}​</font><br></p>
+                                <p><font class="text-o-color-1">{{ items.[1].venue }}​</font><br></p>
                                 <p>{{ items.[1].full_description }}</p>
                                 <p><a class="btn btn-primary" href="{{ items.[1].event_link }}">Facebook esemény</a>&nbsp;</p>
                             </div>
@@ -132,13 +134,11 @@ color:rgb(8, 160, 202);
         </div><div class="s_text_block o_mail_snippet_general pt24 pb24" style="padding-left: 15px; padding-right: 15px;" data-snippet="s_text_block" data-name="Text">
             <div class="container s_allow_columns"><div class="row"><div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;">
                 <h3 style="text-align: left;">Programajánló</h3>
-                
-                <p style="text-align: left;">[IDE JÖNNEK A KÖVI EVENTEK LEÍRÁS NÉLKÜL 3-5 db, dátummal, helyszínnel]</p>
-                
+                               
                 {{#each items }}
                 {{#if (gte @index 2)}}
                 <p style="text-align: left;">
-                    <strong>{{ title }}</strong> {{ start_date }} - {{ start_time }} ({{ location }})<br>
+                    <strong>{{ title }}</strong> {{ start_date }} - {{ start_time }} ({{ venue }})<br>
                     {{ short_description }}
                 </p>
                 {{/if}}
