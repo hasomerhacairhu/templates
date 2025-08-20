@@ -8,5 +8,10 @@
     "template": "notification/external/stripe-donation-subscription-created-notification.html",
     "output": "notification/external/stripe-donation-subscription-created-notification.html",
     "context": {}
+  },
+  {
+    "template":"notification/internal/generation-complete-email-notification-biweekly-event-newsletter.html",
+    "output":"notification/internal/generation-complete-email-notification-biweekly-event-newsletter.html",
+    "context": {}
   }
 ]

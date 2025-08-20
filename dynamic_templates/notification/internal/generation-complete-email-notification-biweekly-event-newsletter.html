@@ -1,0 +1,38 @@
+{% extends "components/internal_notification_frame.html" %}
+
+{% block content %}
+<h1>
+  Új hírlevél generálása kész
+</h1>
+
+<p>
+  Szia!,
+</p>
+
+<p>
+  Elkészült a következő hírlevél tervezete, és mostantól elérhető az ellenőrzéshez.
+  Kérlek, nézd át, és jelezz vissza, ha bármit módosítanál, vagy jóvá tudod hagyni a kiküldéshez.
+</p>
+
+
+{% set url = '{{ newsletter_url }}' %}
+{% set button_text = "Hírlevél megtekintése" %}
+{% include "components/button.html" %}
+
+<!-- Fallback link -->
+<p>
+  Ha a gomb nem működik, másold be ezt a linket a böngésződ címsorába:
+</p>
+<p>
+  <a href="{{ '{{ newsletter_url }}' }}" target="_blank">
+    {{ '{{ newsletter_url }}' }}
+  </a>
+</p>
+
+<p>
+  Köszönöm az jó munkát! Házák!
+</p>
+
+{% include 'components/signature_halutz_bot.html' %}
+
+{% endblock %}
