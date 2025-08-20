@@ -1,0 +1,11 @@
+{% extends "components/base.html" %}
+
+{% block style %}
+    {{ super() }}
+{% endblock %}
+
+{% block body %}
+    {{ super() }}
+    {% block content %}
+    {% endblock %}
+{% endblock %}

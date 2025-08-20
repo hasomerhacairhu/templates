@@ -1,0 +1,12 @@
+[
+  {
+    "template": "notification/external/stripe-donation-subscription-deleted-notification.html",
+    "output": "notification/external/stripe-donation-subscription-deleted-notification.html",
+    "context": {}
+  },
+  {
+    "template": "notification/external/stripe-donation-subscription-created-notification.html",
+    "output": "notification/external/stripe-donation-subscription-created-notification.html",
+    "context": {}
+  }
+]

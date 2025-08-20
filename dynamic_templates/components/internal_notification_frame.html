@@ -1,0 +1,34 @@
+{% extends "components/base.html" %}
+
+{% block style %}
+    {{ super() }}
+{% endblock %}
+
+{% block body %}
+    {{ super() }}
+<!-- Preheader (hidden in most clients) -->
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0; mso-hide:all;">
+    {% block title %}{% endblock %}
+  </div>
+
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background-color:#f5f7fb;">
+    <tr>
+      <td align="center" style="padding:24px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" width="600" class="container" style="width:600px; max-width:100%; background:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+          <tr>
+            <td class="content" style="padding:32px 40px; font-family:Arial,Helvetica,sans-serif; color:#222; line-height:1.6;">
+            {% block content %}
+            {% endblock %}
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:16px 40px; background:#f0f3f9; font-family:Arial,Helvetica,sans-serif; color:#5b6b80; font-size:12px; text-align:center;">
+              Ez egy automatikus értesítés a Hasomer Hacair rendszeréből. <br>Kérjük, ne válaszolj erre az e-mailre. <br>Ha hibát tapasztalsz, jelezd az titkar@somer.hu címen.
+              {% block footer %}{% endblock %}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+{% endblock %}

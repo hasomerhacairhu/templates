@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="x-apple-disable-message-reformatting">
+  <title>{% block title %}{% endblock %}</title>
+  <style>
+    {% block style %}
+    /* Client-resets kept minimal; most styles are inline below for better compatibility */
+    body { margin:0; padding:0; background:#f5f7fb; }
+    a { text-decoration:none; }
+    @media (max-width: 600px) {
+      .container { width:100% !important; }
+      .content { padding:24px !important; }
+      .btn { display:block !important; width:100% !important; }
+    }
+    {% endblock %}
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:#f5f7fb;">
+  {% block body %}{% endblock %}
+</body>
+</html>

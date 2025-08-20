@@ -1,0 +1,33 @@
+{% extends "components/external_notification_plain_frame.html" %}
+
+{% block title %}
+  Láttam, hogy megszűnt a rendszeres támogatásod a Stripe-on keresztül.
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+
+  <p>Kedves Barátunk!</p>
+
+  <p>Hivatalosan is <strong>üdvözöllek a Somer támogató körében</strong>! 💙 Nagyon köszönöm, hogy rendszeres adományoddal mellénk álltál. A támogatásod közvetlenül ahhoz járul hozzá, hogy gyerekek és fiatalok biztonságos, értékalapú, élménydús közösségi programokban vehessenek részt.</p>
+
+  <p><strong>Mi történik most?</strong><br>
+  – A Stripe küld egy visszaigazoló emailt a beállításról.<br>
+  – Minden terhelésről automatikus nyugtát kapsz.<br>
+  – A támogatásod összegét és gyakoriságát bármikor módosíthatod, vagy szüneteltetheted itt:
+  <br>
+  <a href="https://adomany.somer.hu/p/login/bIY8wT8HzgRodLGbII" target="_blank" style="color:#0b5bd3; text-decoration:underline;">Támogatás kezelése</a>
+  </p>
+
+  
+    <p>A Somer befogadó, nyitott és sokszínű közösség, és fontos számomra, hogy számodra is az legyen. <strong>Hogyan kapcsolódhatnánk még jobban?</strong> Ha nyitott vagy egy rövid beszélgetésre, szívesen meghallgatom, mi az, ami neked igazán fontos – akár a programokkal, akár a közösségi működéssel kapcsolatban.</p>
+
+  <p style="margin:12px 0;">
+    <em>Ez persze teljesen opcionális</em> – ha tetszik a javaslatom és van kedved beszélgetni, akkor <strong>kérlek válaszolj erre a levélre</strong>.
+
+  <p>Köszönöm, hogy részese vagy ennek a közösségnek. Jó érzés, hogy együtt dolgozhatunk azon, hogy a Somer valóban otthon legyen mindenkinek.</p>
+
+  <p>Barátsággal,<br>
+
+{% include 'components/signature_saliach.html' %}
+{% endblock %}
