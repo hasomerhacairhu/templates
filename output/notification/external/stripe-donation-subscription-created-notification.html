@@ -34,22 +34,25 @@
     h4 { font-size: 18px; }
     h5 { font-size: 16px; }
     h6 { font-size: 14px; }
+    .btn-container {
+      margin: 24px 0;
+    }
     .btn {
       display: inline-block;
-      background: #08A0CA;
-      color: #ffffff;
+      background: #ffffff;
+      color: #08A0CA !important;
+      border: 2px solid #08A0CA;
       font-weight: 600;
       font-size: 15px;
       padding: 12px 20px;
       border-radius: 8px;
       text-decoration: none;
-      transition: background 0.2s;
+      transition: background 0.2s, color 0.2s;
     }
     .btn:hover {
-      background: #067ba0;
-      color: #ffffff;
+      background: #08A0CA;
+      color: #ffffff !important;
     }
-
     @media (max-width: 600px) {
       .container { width:100% !important; }
       .content { padding:24px !important; }
