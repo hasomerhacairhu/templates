@@ -1,0 +1,77 @@
+
+<!-- components/base.html
+  Table-based outer wrapper. Exposes <yield /> for inner content.
+  Uses Tailwind utility classes from the email preset. Keep it minimal and email-friendly.
+--> 
+<table role="presentation" cellpadding="0" cellspacing="0" width="100%" class="bg-_F6F6F9" style="background-color: #F6F6F9">
+  <tr>
+    <td align="center" style="padding:24px;">
+      <!-- container -->
+      <table role="presentation" cellpadding="0" cellspacing="0" width="600" style="width:600px; max-width:100%;">
+        <tr>
+          <td>
+            <!-- inner card -->
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:#ffffff; border-radius:6px; overflow:hidden;">
+              <tr>
+                <td class="p-6" style="padding:28px; font-family: Inter, Arial, Helvetica, sans-serif; color:#111; line-height:1.5;">
+                  
+  <!-- components/header.html -->
+<table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td style="padding:20px 24px 12px 24px; text-align:center; font-family: Inter, Arial, Helvetica, sans-serif;">
+      <!-- Brand wordmark / placeholder -->
+      <div style="font-weight:700; color:#5B46F3; font-size:20px;">Hasomer Hacair</div>
+      <!-- Optional view-in-browser link slot -->
+      {% if view_in_browser_url %}
+      <div style="margin-top:6px; font-size:12px; color:#6B7280;"><a href="{{ view_in_browser_url }}" style="color:#6B7280; text-decoration:underline;">Megtekintés böngészőben</a></div>
+      {% endif %}
+      <hr style="border:none; border-top:1px solid #EAEAF1; margin:16px 0 0 0;">
+    </td>
+  </tr>
+</table>
+
+
+  <h1 class="text-2xl font-bold mb-4">Új hírlevél generálása kész</h1>
+
+  <p class="mb-4">Szia,</p>
+
+  <p class="mb-4">Elkészült a következő hírlevél tervezete, és mostantól elérhető az ellenőrzéshez. Kérlek, nézd át, és jelezz vissza, ha bármit módosítanál, vagy jóvá tudod hagyni a kiküldéshez.</p>
+
+  {% set url = '{{ newsletter_url }}' %}
+  {% set button_text = "Hírlevél megtekintése" %}
+  {% include "components/button.html" %}
+
+  <p class="mb-4">Ha a gomb nem működik, másold be ezt a linket a böngésződ címsorába:</p>
+  <p class="mb-4"><a href="{{ &#039;{{ newsletter_url }}' }}" target="_blank" style="color:#5B46F3; text-decoration:underline;">{{ &#039;{{ newsletter_url }}' }}</a></p>
+
+  <p class="mb-4">Köszönöm a jó munkát! Házák!</p>
+
+  {% include 'components/signature_halutz_bot.html' %}
+
+  <!-- components/footer.html -->
+<table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td style="padding:16px 24px; font-family: Inter, Arial, Helvetica, sans-serif; font-size:12px; color:#6B7280; text-align:center;">
+      <hr style="border:none; border-top:1px solid #EAEAF1; margin:0 0 12px 0;">
+      <div style="margin-bottom:8px;">Ez egy automatikus értesítés a Hasomer Hacair rendszeréből.</div>
+      <div style="font-size:11px; color:#9CA3AF;">Hasomer Hacair Magyarország • <span>Budapest, Hungary</span></div>
+      <div style="margin-top:8px;">
+        {% if unsubscribe_url %}
+          <a href="{{ unsubscribe_url }}" style="color:#6B7280; text-decoration:underline;">Leiratkozás</a>
+        {% endif %}
+      </div>
+    </td>
+  </tr>
+</table>
+
+
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+

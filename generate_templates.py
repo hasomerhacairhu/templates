@@ -15,6 +15,8 @@ def render_template(template_name, context, output_name):
         f.write(output)
 
 import json
+import subprocess
+import sys
 
 if __name__ == "__main__":
     # Töröljük az összes fájlt az output mappából
@@ -38,3 +40,15 @@ if __name__ == "__main__":
     for item in templates_to_build:
         render_template(item['template'], item['context'], item['output'])
         print(f"Generálva: output/{item['output']}")
+
+    # Optionally run the Node-based Maizzle build (if npm available).
+    try:
+        # check npm availability
+        subprocess.run(["npm", "--version"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # run npm build in this repository
+        repo_root = os.path.dirname(__file__)
+        print("Running 'npm run build' to compile Maizzle templates...")
+        subprocess.run(["npm", "run", "build"], cwd=repo_root, check=True)
+        print("Maizzle build completed.")
+    except (subprocess.CalledProcessError, FileNotFoundError) as e:
+        print("npm not available or build failed, skipping Maizzle build.")

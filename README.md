@@ -2,38 +2,56 @@
 
 Ez a repository automata levelekhez és dokumentumokhoz szükséges sablonokat tartalmaz. A sablonok moduláris, dinamikus elemekből épülnek fel, amelyekből statikus HTML fájlok generálhatók. Ezeket a statikus sablonokat külső dokumentum renderelők használják.
 
+````markdown
+# Sablon generátor repository
+
+Ez a repository az automata levelekhez és dokumentumokhoz szükséges sablonokat tartalmazza. A sablonok moduláris, dinamikus elemekből épülnek fel, amelyeket a Maizzle (Node.js) build folyamata fordít statikus, e-mail-barát HTML fájlokká.
+
 ## Mappastruktúra
-- `dynamic_templates/` – Dinamikus, moduláris sablon-elemek és fő sablonok
-- `static/` – Kézzel szerkesztett, statikus sablonok (legacy)
+- `dynamic_templates/` – Dinamikus, Maizzle/Nunjucks sablonok és komponensek
+- `static/` – Statikus assetek (képek, egyéb források)
 - `output/` – Generált statikus sablonok, amiket a külső rendszerek használnak
 
-## Használat
+## Használat (Node.js + Maizzle)
 
-1. **Virtuális környezet létrehozása**
+Előfeltétel: Node.js (14+ javasolt) és npm.
 
-Windows PowerShell-ben:
-```powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-```
-
-2. **Függőségek telepítése**
+1. Node.js verzió ellenőrzése (PowerShell):
 
 ```powershell
-pip install -r requirements.txt
+node -v
+npm -v
 ```
 
-3. **Sablonok generálása**
+2. Függőségek telepítése (a projekt gyökérkönyvtárában):
 
 ```powershell
-python generate_templates.py
+npm install
 ```
 
-A generált sablonok az `output/` mappába kerülnek.
+3. Sablonok buildelése (maizzle -> `output/`):
+
+```powershell
+npm run build
+```
+
+4. Fejlesztői (watch) mód, élő szerver Maizzle-lal:
+
+```powershell
+npm run watch
+```
+
+A Maizzle konfigurációját a `maizzle.config.js` fájl tartalmazza; a build eredménye a `output/` mappába kerül.
 
 ## Szerkesztés
-- Új sablon-elemeket a `dynamic_templates/` mappában lehet létrehozni.
-- A fő sablonok Jinja2 szintaxist használnak, így könnyen bővíthetők és testreszabhatók.
+- Új sablonok és komponensek létrehozása: `dynamic_templates/` (használj `.njk` / Nunjucks fájlokat vagy Maizzle által támogatott szintaxist).
+- Statikus assetek: `static/` mappa (maizzle.assets beállítás szerint kerül felhasználásra).
+
+## Hibakeresés
+- Ha a `maizzle` parancs nem található, győződj meg róla, hogy lefuttattad az `npm install`-t a projekt gyökérkönyvtárában.
+- Windows PowerShell exekúciós szabályok általában nem érintik a Node parancsokat; nem kell Python virtuális környezetet létrehozni.
 
 ---
 Kérdés vagy hibajelentés esetén keresd a fejlesztői csapatot.
+
+````

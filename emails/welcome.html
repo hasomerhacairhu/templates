@@ -1,0 +1,11 @@
+---
+title: "Welcome"
+layout: "layouts/default.html"
+permalink: "welcome.html"
+---
+
+<div class="max-w-3xl mx-auto p-8">
+  <h1 class="text-2xl font-bold mb-4">Welcome, {{ user_name || "there" }}!</h1>
+  <p class="mb-6">This message is styled with Tailwind CSS and will be compiled with inline CSS.</p>
+  <x-button href="https://example.com" label="Get Started" />
+</div>
