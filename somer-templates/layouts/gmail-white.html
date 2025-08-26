@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+  <!--[if mso]>
+  <xml>
+    <o:OfficeDocumentSettings xmlns:o="urn:schemas-microsoft-com:office:office">
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+  </xml>
+  <style>
+    /* Ensure fonts in MSO use a readable fallback */
+    body, table, td, a { font-family: Arial, Helvetica, sans-serif !important; }
+  </style>
+  <![endif]-->
+
+  <style>
+    /* Tailwind directives — Maizzle/Tailwind will process these then inline the result */
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    /* Make images responsive by default */
+    img { @apply max-w-full h-auto align-middle; }
+  </style>
+</head>
+
+<body class="bg-gray-100 m-0 p-0 font-sans text-gray-800" style="-webkit-font-smoothing:antialiased;">
+  <!-- Optional preheader area: set `page.preheader` to show it -->
+  <if condition="page.preheader">
+    <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{{{ page.preheader }}}</div>
+  </if>
+
+  <!-- Outer full-width table to ensure reliable background color across clients -->
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" class="w-full" style="background-color: #F6F6F9;">
+    <tr>
+      <td align="center">
+        <!-- Centered container: keeps content at ~600px and is responsive to mobile -->
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px; margin:0 auto;">
+          <tr>
+            <td class="px-4 py-8">
+
+              <!-- White card with subtle radius and light border — Gmail-like canvas -->
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background: #ffffff; border-radius: 6px; border: 1px solid #EAEAF1;">
+                <tr>
+                  <td class="p-6" style="padding:24px;">
+
+                    <!-- Header slot: small brand row and optional view-in-browser link -->
+                    <div class="mb-4 text-sm text-gray-500">
+                      <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div class="font-medium text-gray-900">{{ page.brand_name || 'Brand Name' }}</div>
+                        <div class="text-right text-sm text-gray-500"> <if condition="page.view_in_browser"><a href="{{ page.view_in_browser }}" class="text-gray-500 no-underline">View in browser</a></if></div>
+                      </div>
+                    </div>
+
+                    <!-- Content yield — main newsletter body (write like Gmail: paragraphs, headings, images) -->
+                    <div class="text-base leading-relaxed text-gray-800" style="line-height:1.45;">
+                      <yield />
+                    </div>
+
+                    <!-- Footer spacer inside card -->
+                    <div class="mt-8 text-sm text-gray-500">
+                      <slot name="card-footer"></slot>
+                    </div>
+
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Outside card footer (address/unsubscribe) -->
+              <div class="mt-4 text-center text-xs text-gray-500">
+                <div style="margin-top:12px;">
+                  <span>{{ page.company_name || 'Company, Inc.' }}</span> • <span>{{ page.address_line || '123 Example St, City' }}</span>
+                </div>
+                <div style="margin-top:6px;">
+                  <a href="{{ unsubscribe_url || '#' }}" class="text-gray-500 no-underline">Unsubscribe</a>
+                </div>
+              </div>
+
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

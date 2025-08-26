@@ -1,0 +1,15 @@
+<script props>
+  module.exports = {
+    href: props.href || 'https://pelda.link/hirlevel-tervezet',
+    linkText: props.linkText || 'Ha a gomb nem működik, másold be ezt a linket a böngésződ címsorába:',
+  }
+</script>
+
+<p class="m-0 mb-2 text-xs/5 text-slate-500">
+  {{ linkText }}
+</p>
+<p class="m-0 mb-5 text-xs/5 text-blue-700 break-all">
+  <a href="{{ href }}" target="_blank" class="text-blue-700 no-underline">
+    {{ href }}
+  </a>
+</p>

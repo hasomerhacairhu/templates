@@ -1,0 +1,14 @@
+<script props>
+  module.exports = {
+    recipientName: props.recipientName || '[Név]',
+    content: props.content || 'Elkészült a következő hírlevél tervezete, és mostantól elérhető az ellenőrzéshez. Kérlek, nézd át, és jelezz vissza, ha bármit módosítanál, vagy jóvá tudod hagyni a kiküldéshez.',
+  }
+</script>
+
+<p class="m-0 mb-3 text-sm/6">
+  Kedves <strong>{{ recipientName }}</strong>,
+</p>
+
+<p class="m-0 mb-4 text-sm/6">
+  {{ content }}
+</p>

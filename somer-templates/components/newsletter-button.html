@@ -1,0 +1,21 @@
+<script props>
+  module.exports = {
+    href: props.href || 'https://pelda.link/hirlevel-tervezet',
+    text: props.text || 'Hírlevél megtekintése',
+  }
+</script>
+
+<table class="my-6">
+  <tr>
+    <td>
+      <a
+        href="{{ href }}"
+        target="_blank"
+        class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-5 py-3 rounded-lg no-underline"
+        style="background-color: #1f6feb; color: #ffffff;"
+      >
+        {{ text }}
+      </a>
+    </td>
+  </tr>
+</table>
