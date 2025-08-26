@@ -1,0 +1,211 @@
+---
+title: "Kétheti programajánló"
+layout: "somer-templates/layouts/main.html"
+permalink: "biweekly-event-newsletter"
+page:
+  title: "Hasomer Hacair - Programajánló"
+  language: "hu"
+  brand_name: "Hasomer Hacair"
+  company_name: "Hasomer Hacair Magyarország"
+  address_line: "Budapest, Magyarország"
+---
+
+<!-- Dev mode placeholder data (will be replaced by automation) -->
+<script>
+  // Placeholder data for development preview
+  const placeholderItems = [
+    {
+      title: "Shabbat program",
+      img_url: "https://picsum.photos/400/300?random=1",
+      start_date: "2025. augusztus 30.",
+      start_time: "18:00",
+      venue: "Somer klub",
+      full_description: "Gyere el hozzánk egy kellemes shabbat programra, ahol együtt ünnepelhetjük a hét végét. Lesz éneklés, beszélgetés és finom vacsora is.",
+      event_link: "https://facebook.com/events/example1"
+    },
+    {
+      title: "Túra a Budai-hegyekben",
+      img_url: "https://picsum.photos/400/300?random=2", 
+      start_date: "2025. szeptember 1.",
+      start_time: "09:00",
+      venue: "Széll Kálmán tér",
+      full_description: "Fedezd fel velünk a Budai-hegyek szépségeit! Egy egész napos túra vár, gyönyörű kilátásokkal és jó társasággal.",
+      event_link: "https://facebook.com/events/example2"
+    },
+    {
+      title: "Film este",
+      start_date: "2025. szeptember 5.",
+      start_time: "19:30",
+      venue: "Somer klub",
+      short_description: "Izgalmas filmeket nézünk meg közösen popcornnal és jó hangulattal."
+    },
+    {
+      title: "Főzőkurzus",
+      start_date: "2025. szeptember 8.",
+      start_time: "16:00", 
+      venue: "Közösségi konyha",
+      short_description: "Tanuljunk meg együtt tradicionális zsidó ételeket készíteni."
+    }
+  ];
+</script>
+
+
+<x-main>
+<!-- Header with Logo -->
+<div class="text-center py-8">
+  <a href="http://somer.hu" target="_blank" class="no-underline">
+    <img src="https://somer.fra1.digitaloceanspaces.com/somer.hu/uploads/2021/04/07135101/semelColor256.png" 
+         alt="Hasomer Hacair logo" 
+         class="max-w-full h-auto w-32 mx-auto">
+  </a>
+</div>
+
+<!-- Main Title -->
+<div class="text-center mb-8">
+  <h1 class="text-3xl font-bold text-somer mb-2">Hasomer Hacair Magyarország</h1>
+</div>
+
+<!-- Newsletter Section Title -->
+<div class="mb-8 px-4">
+  <h2 class="text-xl font-semibold text-newsletter-text">Programajánló</h2>
+</div>
+
+<!-- Featured Events (Two Cards) -->
+<div class="bg-newsletter-accent py-8 mb-8">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-6">
+      
+      <!-- Event Card 1 -->
+      <div class="bg-white rounded-lg border border-newsletter-border overflow-hidden h-full">
+        <img src="{{ items.[0].img_url }}" 
+             alt="{{ items.[0].title }}" 
+             class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-lg font-semibold text-newsletter-text mb-3">{{ items.[0].title }}</h3>
+          <p class="text-somer font-medium mb-1">{{ items.[0].start_date }} - {{ items.[0].start_time }}</p>
+          <p class="text-somer font-medium mb-3">{{ items.[0].venue }}</p>
+          <p class="text-newsletter-muted mb-4 leading-relaxed">{{ items.[0].full_description }}</p>
+          <a href="{{ items.[0].event_link }}" 
+             target="_blank" 
+             class="inline-block bg-somer text-white px-4 py-2 rounded font-medium hover:bg-somer-600 no-underline">
+            Facebook esemény
+          </a>
+        </div>
+      </div>
+      
+      <!-- Event Card 2 -->
+      <div class="bg-white rounded-lg border border-newsletter-border overflow-hidden h-full">
+        <img src="{{ items.[1].img_url }}" 
+             alt="{{ items.[1].title }}" 
+             class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-lg font-semibold text-newsletter-text mb-3">{{ items.[1].title }}</h3>
+          <p class="text-somer font-medium mb-1">{{ items.[1].start_date }} - {{ items.[1].start_time }}</p>
+          <p class="text-somer font-medium mb-3">{{ items.[1].venue }}</p>
+          <p class="text-newsletter-muted mb-4 leading-relaxed">{{ items.[1].full_description }}</p>
+          <a href="{{ items.[1].event_link }}" 
+             target="_blank" 
+             class="inline-block bg-somer text-white px-4 py-2 rounded font-medium hover:bg-somer-600 no-underline">
+            Facebook esemény
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- Upcoming Events List -->
+<div class="px-4 mb-8">
+  <h3 class="text-xl font-semibold text-newsletter-text mb-4">Későbbi programjaink</h3>
+  
+  <!-- Dynamic event list (items 2 and beyond) -->
+  {{#each items }}
+  {{#if (gte @index 2)}}
+  <div class="mb-4">
+    <p class="text-newsletter-text">
+      <strong class="font-semibold">{{ title }}</strong> 
+      {{ start_date }} - {{ start_time }} ({{ venue }})
+    </p>
+    <p class="text-newsletter-muted mt-1">{{ short_description }}</p>
+  </div>
+  {{/if}}
+  {{/each}}
+  
+  <div class="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r">
+    <p class="text-newsletter-muted text-sm">
+      Néha változtatnunk kell az eltervezett programjainkon. A program közeledtével mindenképpen bizonyosodj meg ismételten a program kezdésének időpontjáról és a helyszínről a legfrissebb közösségi média felületeinken.
+    </p>
+  </div>
+</div>
+
+<!-- Support CTA Section -->
+<div class="bg-gradient-to-r from-somer to-somer-600 py-12 mb-8">
+  <div class="text-center text-white px-4">
+    <h3 class="text-2xl font-bold mb-3">Kérlek, támogasd a munkánkat rendszeres adományoddal!</h3>
+    <p class="text-somer-100 mb-6 text-lg">Fenntartható zsidó ifjúsági közösséget teremtünk.</p>
+    <a href="http://somer.hu/tamogatom" 
+       target="_blank" 
+       class="inline-block bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-bold text-lg hover:bg-yellow-300 no-underline">
+      TÁMOGATOM!
+    </a>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<div class="bg-gray-100 py-8">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- Left Column - Organization Info -->
+      <div>
+        <h4 class="font-bold text-newsletter-text mb-2">Hasomer Hacair Magyarország</h4>
+        <div class="text-sm text-newsletter-muted">
+          <a href="/unsubscribe_from_list" class="text-somer underline hover:text-somer-600">
+            Feliratkozás kezelése
+          </a>
+          <p class="mt-1">Hazak VeÁmác!</p>
+        </div>
+      </div>
+      
+      <!-- Right Column - Links and Contact -->
+      <div class="text-sm text-newsletter-muted md:text-right">
+        <div class="space-y-1">
+          <div>
+            <a href="https://somer.hu" target="_blank" class="text-somer underline hover:text-somer-600">somer.hu</a>
+            <span class="mx-1">|</span>
+            <a href="https://somer.hu/kepek" target="_blank" class="text-somer underline hover:text-somer-600">galéria</a>
+          </div>
+          <div>
+            <a href="https://www.facebook.com/hasomerhacair" target="_blank" class="text-somer underline hover:text-somer-600">facebook</a>
+            <span class="mx-1">|</span>
+            <a href="https://www.instagram.com/hasomerhacairhu/" target="_blank" class="text-somer underline hover:text-somer-600">instagram</a>
+            <span class="mx-1">|</span>
+            <a href="https://www.youtube.com/@hasomerhacairhu" target="_blank" class="text-somer underline hover:text-somer-600">youtube</a>
+            <span class="mx-1">|</span>
+            <a href="https://somer.hu/discord" target="_blank" class="text-somer underline hover:text-somer-600">discord</a>
+          </div>
+          <div>
+            <a href="tel://+36704276637" target="_blank" class="text-somer underline hover:text-somer-600">+36-70-HA-SO-MER</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- Legal Footer -->
+<div class="bg-gray-200 py-6">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <p class="text-xs text-newsletter-muted">
+      Ezt a levelet azért kaptad, mert megadtad nekünk az emailcímed korábban. Ha szeretnél leiratkozni, a rólad tárolt adatokról tájékozódni, azokon módosítani vagy töröltetnéd őket, lépj velünk kapcsolatba!
+      <a href="http://somer.hu/kapcsolat" class="text-somer underline hover:text-somer-600 ml-1">somer.hu/kapcsolat</a>
+    </p>
+  </div>
+</div>
+</x-main>
+    </p>
+  </div>
+</div>
+</x-main>
