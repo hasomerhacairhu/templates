@@ -24,19 +24,16 @@ preheader: Elkészült a következő hírlevél tervezete és ellenőrzésre vá
                 />
                 
                 <x-newsletter-button 
-                  href="https://pelda.link/hirlevel-tervezet"
+                  href="{{ newsletter_link }}"
                   text="Hírlevél megtekintése"
                 />
                 
                 <x-newsletter-fallback-link 
-                  href="https://pelda.link/hirlevel-tervezet"
+                    href="{{ newsletter_link }}"
                   linkText="Ha a gomb nem működik, másold be ezt a linket a böngésződ címsorába:"
                 />
                 
-                <x-newsletter-signature 
-                  closing="Köszönöm az együttműködést!"
-                  signature="[Aláírás]"
-                />
+                <x-signature-haluc-bot/>
 
               </td>
             </tr>
