@@ -15,6 +15,16 @@ export default {
     output: {
       path: 'build_production',
     },
+    templates: [
+      {
+        source: 'src/templates', // adjust as needed
+        destination: 'build_production', // force output here
+        layout: {
+          path: 'layouts', // specify layouts folder
+        },
+      },
+      // Add more template rules if needed
+    ],
   },
   css: {
     inline: true,

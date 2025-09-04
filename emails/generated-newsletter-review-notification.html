@@ -3,47 +3,47 @@ title: Új hírlevél ellenőrzésre kész
 language: hu
 bodyClass: bg-slate-100
 preheader: Elkészült a következő hírlevél tervezete és ellenőrzésre vár.
+layout: "main.html"
 ---
 
-<x-main>
-  <div class="bg-slate-100 sm:px-4 font-sans">
-    <table align="center" class="m-0 mx-auto">
-      <tr>
-        <td class="w-[600px] max-w-full">
-          <x-spacer height="24px" />
 
-          <table class="w-full">
-            <tr>
-              <td class="py-8 px-10 sm:p-6 bg-white rounded-xl shadow-sm border border-slate-200">
-                
-                <x-newsletter-header title="Új hírlevél ellenőrzésre kész" />
-                
-                <x-newsletter-content 
-                  recipientName="[Név]"
-                  content="Elkészült a következő hírlevél tervezete, és mostantól elérhető az ellenőrzéshez. Kérlek, nézd át, és jelezz vissza, ha bármit módosítanál, vagy jóvá tudod hagyni a kiküldéshez."
-                />
-                
-                <x-newsletter-button 
+<div class="bg-slate-100 sm:px-4 font-sans">
+  <table align="center" class="m-0 mx-auto">
+    <tr>
+      <td class="w-[600px] max-w-full">
+        <x-spacer height="24px" />
+
+        <table class="w-full">
+          <tr>
+            <td class="py-8 px-10 sm:p-6 bg-white rounded-xl shadow-sm border border-slate-200">
+              
+              <x-newsletter-header title="Új hírlevél ellenőrzésre kész" />
+              
+              <x-newsletter-content 
+                recipientName="[Név]"
+                content="Elkészült a következő hírlevél tervezete, és mostantól elérhető az ellenőrzéshez. Kérlek, nézd át, és jelezz vissza, ha bármit módosítanál, vagy jóvá tudod hagyni a kiküldéshez."
+              />
+              
+              <x-newsletter-button 
+                href="{{ newsletter_link }}"
+                text="Hírlevél megtekintése"
+              />
+              
+              <x-newsletter-fallback-link 
                   href="{{ newsletter_link }}"
-                  text="Hírlevél megtekintése"
-                />
-                
-                <x-newsletter-fallback-link 
-                    href="{{ newsletter_link }}"
-                  linkText="Ha a gomb nem működik, másold be ezt a linket a böngésződ címsorába:"
-                />
-                
-                <x-signature-haluc-bot/>
+                linkText="Ha a gomb nem működik, másold be ezt a linket a böngésződ címsorába:"
+              />
+              
+              <x-signature-haluc-bot/>
 
-              </td>
-            </tr>
-          </table>
+            </td>
+          </tr>
+        </table>
 
-          <x-newsletter-footer text="Ez egy automatikus értesítés a hírlevél tervezetének ellenőrzéséhez." />
+        <x-newsletter-footer text="Ez egy automatikus értesítés a hírlevél tervezetének ellenőrzéséhez." />
 
-          <x-spacer height="24px" />
-        </td>
-      </tr>
-    </table>
-  </div>
-</x-main>
+        <x-spacer height="24px" />
+      </td>
+    </tr>
+  </table>
+</div>
