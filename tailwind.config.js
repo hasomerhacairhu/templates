@@ -25,15 +25,6 @@ module.exports = {
           800: '#044052',
           900: '#02202A'
         },
-        // Newsletter specific colors
-        'newsletter': {
-          'primary': '#08A0CA',
-          'secondary': '#0680A2',
-          'accent': '#CCF0F8',
-          'text': '#1F2937',
-          'muted': '#6B7280',
-          'border': '#E5E7EB'
-        }
       },
       fontFamily: {
         'sans': ['Inter', 'Arial', 'Helvetica', 'sans-serif'],
