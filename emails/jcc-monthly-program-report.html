@@ -21,14 +21,14 @@
             </tr>
         </thead>
         <tbody>
-            {{#each rows}}
+            {{#each $('Filter').all()}}
             <tr>
-                <td class="p-2 border text-sm align-top">{{ $json['Dátum (Date)'] }}</td>
-                <td class="p-2 border text-sm align-top">{{ DateTime.fromISO($json['Kezdő időpont']).minus({ hours: 1 }).toFormat('HH:mm') }}</td>
-                <td class="p-2 border text-sm align-top">{{ $json['Dátum vége'] }}</td>
-                <td class="p-2 border text-sm align-top">{{ DateTime.fromISO($json['Záró időpont']).plus({ hours: 1 }).toFormat('HH:mm') }}</td>
-                <td class="p-2 border text-sm align-top">{{ $json['Nap'] }}</td>
-                <td class="p-2 border text-sm align-top">{{ $json['Program neve'] }}</td>
+                <td class="p-2 border text-sm align-top">@{{ $json["Dátum (Date)"] }}</td>
+                <td class="p-2 border text-sm align-top">@{{ DateTime.fromISO($json["Kezdő időpont"]).minus({ hours: 1 }).toFormat("HH:mm") }}</td>
+                <td class="p-2 border text-sm align-top">@{{ $json["Dátum vége"] }}</td>
+                <td class="p-2 border text-sm align-top">@{{ DateTime.fromISO($json["Záró időpont"]).plus({ hours: 1 }).toFormat("HH:mm") }}</td>
+                <td class="p-2 border text-sm align-top">@{{ $json["Nap"] }}</td>
+                <td class="p-2 border text-sm align-top">@{{ $json["Program neve"] }}</td>
             </tr>
             {{/each}}
         </tbody>
