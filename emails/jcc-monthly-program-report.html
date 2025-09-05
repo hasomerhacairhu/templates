@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            @{{#each $('Filter').all()}}
+            @{{#each data}}
             <tr>
                 <td class="p-2 border text-sm align-top">@{{ $json["Dátum (Date)"] }}</td>
                 <td class="p-2 border text-sm align-top">@{{ DateTime.fromISO($json["Kezdő időpont"]).minus({ hours: 1 }).toFormat("HH:mm") }}</td>
