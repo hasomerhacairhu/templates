@@ -18,10 +18,16 @@ preheader: Elkészült a következő hírlevél tervezete és ellenőrzésre vá
               
               <x-newsletter-header title="Új hírlevél ellenőrzésre kész" />
               
-              <x-newsletter-content 
-                recipientName="[Név]"
-                content="Elkészült a következő hírlevél tervezete, és mostantól elérhető az ellenőrzéshez. Kérlek, nézd át, és jelezz vissza, ha bármit módosítanál, vagy jóvá tudod hagyni a kiküldéshez."
-              />
+              
+
+              <p class="m-0 mb-3 text-sm/6">
+                Kedves <strong>{{ name }}</strong>,
+              </p>
+
+              <p class="m-0 mb-4 text-sm/6">
+                Elkészült a következő hírlevél tervezete, és mostantól elérhető az ellenőrzéshez. Kérlek, nézd át, és jelezz vissza, ha bármit módosítanál, vagy jóvá tudod hagyni a kiküldéshez."
+              </p>
+
               
               <x-newsletter-button 
                 href="{{ newsletter_link }}"
