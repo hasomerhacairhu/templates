@@ -23,12 +23,12 @@
         <tbody>
             @{{#each data}}
             <tr>
-                <td class="p-2 border text-sm align-top">@{{ $json["Dátum (Date)"] }}</td>
-                <td class="p-2 border text-sm align-top">@{{ DateTime.fromISO($json["Kezdő időpont"]).minus({ hours: 1 }).toFormat("HH:mm") }}</td>
-                <td class="p-2 border text-sm align-top">@{{ $json["Dátum vége"] }}</td>
-                <td class="p-2 border text-sm align-top">@{{ DateTime.fromISO($json["Záró időpont"]).plus({ hours: 1 }).toFormat("HH:mm") }}</td>
-                <td class="p-2 border text-sm align-top">@{{ $json["Nap"] }}</td>
-                <td class="p-2 border text-sm align-top">@{{ $json["Program neve"] }}</td>
+                <td class="p-2 border text-sm align-top">@{{ $json.start_date }}</td>
+                <td class="p-2 border text-sm align-top">@{{ $json.start_time }}</td>
+                <td class="p-2 border text-sm align-top">@{{ $json.end_date }}</td>
+                <td class="p-2 border text-sm align-top">@{{ $json.end_time }}</td>
+                <td class="p-2 border text-sm align-top">@{{ $json.day }}</td>
+                <td class="p-2 border text-sm align-top">@{{ $json.title }}</td>
             </tr>
             {{/each}}
         </tbody>

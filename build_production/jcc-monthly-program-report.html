@@ -43,12 +43,12 @@
             <tbody>
               {{#each data}}
                 <tr>
-                  <td style="border-width: 1px; padding: 8px; vertical-align: top; font-size: 14px">{{ $json["Dátum (Date)"] }}</td>
-                  <td style="border-width: 1px; padding: 8px; vertical-align: top; font-size: 14px">{{ DateTime.fromISO($json["Kezdő időpont"]).minus({ hours: 1 }).toFormat("HH:mm") }}</td>
-                  <td style="border-width: 1px; padding: 8px; vertical-align: top; font-size: 14px">{{ $json["Dátum vége"] }}</td>
-                  <td style="border-width: 1px; padding: 8px; vertical-align: top; font-size: 14px">{{ DateTime.fromISO($json["Záró időpont"]).plus({ hours: 1 }).toFormat("HH:mm") }}</td>
-                  <td style="border-width: 1px; padding: 8px; vertical-align: top; font-size: 14px">{{ $json["Nap"] }}</td>
-                  <td style="border-width: 1px; padding: 8px; vertical-align: top; font-size: 14px">{{ $json["Program neve"] }}</td>
+                  <td style="border-width: 1px; padding: 8px; vertical-align: top; font-size: 14px">{{ $json.start_date }}</td>
+                  <td style="border-width: 1px; padding: 8px; vertical-align: top; font-size: 14px">{{ $json.start_time }}</td>
+                  <td style="border-width: 1px; padding: 8px; vertical-align: top; font-size: 14px">{{ $json.end_date }}</td>
+                  <td style="border-width: 1px; padding: 8px; vertical-align: top; font-size: 14px">{{ $json.end_time }}</td>
+                  <td style="border-width: 1px; padding: 8px; vertical-align: top; font-size: 14px">{{ $json.day }}</td>
+                  <td style="border-width: 1px; padding: 8px; vertical-align: top; font-size: 14px">{{ $json.title }}</td>
                 </tr>
               {{/each}}
             </tbody>
