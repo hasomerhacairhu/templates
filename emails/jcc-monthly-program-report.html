@@ -1,0 +1,52 @@
+<x-gmail-white>
+    <p class="mb-2">Szia Imre!</p>
+    <p class="mb-2">
+        Alább olvashatod a legfrissebb havi programtervünkből azokat a foglalkozásokat, amiket a Bálint Házban szeretnénk megtartani.
+    </p>
+    <p>
+        A teljes programot itt találod:
+        <a href="https://somer.hu/partner-naptar" class="text-blue-600 underline">https://somer.hu/partner-naptar</a>
+    </p>
+
+<div class="mt-3 p-3">
+    <table class="w-full border-collapse font-sans">
+        <thead>
+            <tr>
+                <th class="bg-gray-100 p-2 border text-left font-semibold text-sm">Dátum</th>
+                <th class="bg-gray-100 p-2 border text-left font-semibold text-sm">Kezdő időpont</th>
+                <th class="bg-gray-100 p-2 border text-left font-semibold text-sm">Dátum vége</th>
+                <th class="bg-gray-100 p-2 border text-left font-semibold text-sm">Záró időpont</th>
+                <th class="bg-gray-100 p-2 border text-left font-semibold text-sm">Nap</th>
+                <th class="bg-gray-100 p-2 border text-left font-semibold text-sm">Program neve</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each rows}}
+            <tr>
+                <td class="p-2 border text-sm align-top">{{ $json['Dátum (Date)'] }}</td>
+                <td class="p-2 border text-sm align-top">{{ DateTime.fromISO($json['Kezdő időpont']).minus({ hours: 1 }).toFormat('HH:mm') }}</td>
+                <td class="p-2 border text-sm align-top">{{ $json['Dátum vége'] }}</td>
+                <td class="p-2 border text-sm align-top">{{ DateTime.fromISO($json['Záró időpont']).plus({ hours: 1 }).toFormat('HH:mm') }}</td>
+                <td class="p-2 border text-sm align-top">{{ $json['Nap'] }}</td>
+                <td class="p-2 border text-sm align-top">{{ $json['Program neve'] }}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+
+
+</div>
+
+    <p class="mb-2">
+        Csatoltam az oktatási csapatot is. Ha bármi kérdésed van, nyugodtan írj nekünk!
+    </p>
+
+    <p class="mb-2">
+        Köszi,
+    </p>
+
+<x-signature-saliach />
+
+
+</x-gmail-white>
