@@ -13,9 +13,9 @@ preheader: "Két hetente jelentkező programajánló hírlevelünk"
 <div class="flex items-center justify-center py-4 px-4 text-center">
   <div class="flex items-center">
     <a href="http://somer.hu" target="_blank" class="no-underline mr-4">
-      <img src="https://somer.fra1.digitaloceanspaces.com/somer.hu/uploads/2021/04/07135101/semelColor256.png"
-           alt="Hasomer Hacair logo"
-           class="h-16 w-16 md:h-20 md:w-20">
+  <img src="https://somer.fra1.digitaloceanspaces.com/somer.hu/uploads/2021/04/07135101/semelColor256.png"
+       alt="Hasomer Hacair logo"
+       class="h-16 w-16">
     </a>
     <div>
       <h1 class="text-2xl font-bold text-somer mx-0">
@@ -31,17 +31,21 @@ preheader: "Két hetente jelentkező programajánló hírlevelünk"
 </div>
 
 <!-- Featured Events (Two Cards) -->
-<div class="bg-somer-100 py-6 mb-6">
+<div class="bg-somer-100 py-6">
   <div class="px-6">
       
       <!-- Event Card 1 -->
   <div class="bg-white rounded-lg border border-gray-200 overflow-hidden h-full mb-6">
-        <if condition="page.env === 'production'">
-          <img src="{{ items.[0].img_url }}" alt="{{ items.[0].title }}" class="w-full sm:h-48 h-60 object-cover">
-        </if>
-        <else>
-            <img src="https://picsum.photos/id/{{Math.floor(Math.random() * 1000)}}/600/400" class="w-full sm:h-48 h-60 object-cover">
-        </else>
+     <if condition="page.env === 'production'">
+    <img src="{{ items.[0].img_url }}" alt="{{ items.[0].title }}"
+      style="width:100%; height:auto; display:block; max-height:240px; object-fit:cover;"
+      width="600">
+     </if>
+     <else>
+      <img src="https://picsum.photos/id/{{Math.floor(Math.random() * 1000)}}/600/400" alt="{{ items.[0].title }}"
+        style="width:100%; height:auto; display:block; max-height:240px; object-fit:cover;"
+        width="600">
+     </else>
         
         <div class="p-6">
           <h3 class="text-lg font-semibold text-gray-800 mb-1">{{ items.[0].title }}</h3>
@@ -56,14 +60,19 @@ preheader: "Két hetente jelentkező programajánló hírlevelünk"
         </div>
       </div>
       
+      
       <!-- Event Card 2 -->
   <div class="bg-white rounded-lg border border-gray-200 overflow-hidden h-full">
-        <if condition="page.env === 'production'">
-          <img src="{{ items.[1].img_url }}" alt="{{ items.[1].title }}" class="w-full sm:h-48 h-60 object-cover">
-        </if>
-        <else>
-            <img src="https://picsum.photos/id/{{Math.floor(Math.random() * 1000)}}/600/400" class="w-full sm:h-48 h-60 object-cover">
-        </else>
+     <if condition="page.env === 'production'">
+    <img src="{{ items.[1].img_url }}" alt="{{ items.[1].title }}"
+      style="width:100%; height:auto; display:block; max-height:240px; object-fit:cover;"
+      width="600">
+     </if>
+     <else>
+      <img src="https://picsum.photos/id/{{Math.floor(Math.random() * 1000)}}/600/400" alt="{{ items.[1].title }}"
+        style="width:100%; height:auto; display:block; max-height:240px; object-fit:cover;"
+        width="600">
+     </else>
         <div class="p-6">
           <h3 class="text-lg font-semibold text-gray-800 mb-1">{{ items.[1].title }}</h3>
           <p class="text-gray-700 font-medium mb-1">{{ items.[1].start_date }} - {{ items.[1].start_time }}</p>
@@ -80,6 +89,8 @@ preheader: "Két hetente jelentkező programajánló hírlevelünk"
   </div>
 </div>
 
+<x-include src="components/newsletter-PET-banner.html" />
+
 <!-- Upcoming Events List -->
 <div class="px-4 mb-8">
   <h3 class="text-xl font-semibold text-gray-800 mb-4">Későbbi programjaink</h3>
@@ -94,7 +105,7 @@ preheader: "Két hetente jelentkező programajánló hírlevelünk"
     <p class="text-somer font-medium mb-1">{{ start_date }} - {{ start_time }} ({{ venue }})</p>
   <p class="text-gray-600 mt-1">{{ short_description }}</p>
     {{#unless @last}}
-<hr class="w-80 h-1 mx-auto my-4 bg-gray-300 border-0 rounded-sm md:my-10 dark:bg-gray-700">
+<hr class="w-80 h-1 mx-auto my-4 bg-gray-300 border-0 rounded-sm my-10 dark:bg-gray-700">
     {{/unless}}
   </div>
   {{/if}}
@@ -123,14 +134,14 @@ preheader: "Két hetente jelentkező programajánló hírlevelünk"
 
 <!-- Footer Section -->
 <div class="bg-gray-50 py-4 px-4 text-sm">
-      <div class="text-center md:text-left">
+  <div class="text-center">
         <span class="font-semibold text-gray-800">Hasomer Hacair Magyarország</span>
         <span class="mx-2">|</span>
         <a href="/unsubscribe_from_list" class="text-somer no-underline hover:text-somer-600">Feliratkozás kezelése</a>
         <span class="mx-2">|</span>
-        <span>Hazak VeÁmác!</span>
+        <span class="text-gray-800">Házák VeÁmác!</span>
       </div>
-      <div class="text-center md:text-right space-x-2">
+  <div class="text-center space-x-2">
         <a href="https://somer.hu" target="_blank" class="text-somer no-underline hover:text-somer-600">somer.hu</a>
         <a href="https://somer.hu/kepek" target="_blank" class="text-somer no-underline hover:text-somer-600">galéria</a>
         <a href="https://www.facebook.com/hasomerhacair" target="_blank" class="text-somer no-underline hover:text-somer-600">facebook</a>
