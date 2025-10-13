@@ -104,7 +104,7 @@ preheader: "Két hetente jelentkező programajánló hírlevelünk"
     </p>
     <p class="text-somer font-medium mb-1">{{ start_date }} - {{ start_time }} ({{ venue }})</p>
   <p class="text-gray-600 mt-1">{{ short_description }}</p>
-  {{#if (match event_link "^https?://")}}
+  {{#if (event_link.match("^https?://"))}}
     <a href="{{event_link}}" target="_blank" style="text-decoration: none;">
       <p style="margin-top: 4px;">Facebook esemény.</p>
     </a>
