@@ -122,6 +122,13 @@
                 </p>
                 <p style="margin-bottom: 4px; font-weight: 500; color: #08A0CA">{{ start_date }} - {{ start_time }} ({{ venue }})</p>
                 <p style="margin-top: 4px; color: #4b5563">{{ short_description }}</p>
+                {{#if (match event_link &quot;^https?://&quot;)}}
+                  <a href="{{event_link}}" target="_blank" style="text-decoration: none;">
+                    <p style="margin-top: 4px;">Facebook esemény.</p>
+                  </a>
+                {{else}}
+                  <p style="margin-top: 4px;">{{event_link}}</p>
+                {{/if}}
                 {{#unless @last}}
                   <hr class="dark-bg-gray-700" style="margin: 16px auto; height: 4px; width: 320px; border-radius: 2px; border-width: 0; background-color: #d1d5db">
                 {{/unless}}
