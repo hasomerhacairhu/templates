@@ -33,11 +33,6 @@
     .hover-text-somer-600:hover {
       color: #0680A2 !important
     }
-    @media (max-width: 600px) {
-      .sm-h-48 {
-        height: 192px !important
-      }
-    }
     @media (prefers-color-scheme: dark) {
       .dark-bg-gray-700 {
         background-color: #374151 !important
@@ -68,9 +63,9 @@
         <div style="margin-bottom: 32px; padding-left: 16px; padding-right: 16px; text-align: center">
           <h2 style="font-size: 20px; font-weight: 600; color: #1f2937">Programajánló</h2>
         </div>
-        <div style="margin-bottom: 24px; background-color: #CCF0F8; padding-top: 24px; padding-bottom: 24px">
+        <div style="background-color: #CCF0F8; padding-top: 24px; padding-bottom: 24px">
           <div style="padding-left: 24px; padding-right: 24px">
-            <div style="margin-bottom: 24px; height: 100%; overflow: hidden; border-radius: 8px; border-width: 1px; border-color: #e5e7eb; background-color: #fffffe"> <img src="{{ items.[0].img_url }}" alt="{{ items.[0].title }}" class="sm-h-48" style="max-width: 100%; vertical-align: middle; height: 240px; width: 100%; object-fit: cover" height="240">
+            <div style="margin-bottom: 24px; height: 100%; overflow: hidden; border-radius: 8px; border-width: 1px; border-color: #e5e7eb; background-color: #fffffe"> <img src="{{ items.[0].img_url }}" alt="{{ items.[0].title }}" style="max-width: 100%; vertical-align: middle; width: 100%; height: auto; display: block; max-height: 240px; object-fit: cover" width="600" height="auto">
               <div style="padding: 24px">
                 <h3 style="margin-bottom: 4px; font-size: 18px; font-weight: 600; color: #1f2937">{{ items.[0].title }}</h3>
                 <p style="margin-bottom: 4px; font-weight: 500; color: #374151">{{ items.[0].start_date }} - {{ items.[0].start_time }}</p>
@@ -81,7 +76,7 @@
                 </a>
               </div>
             </div>
-            <div style="height: 100%; overflow: hidden; border-radius: 8px; border-width: 1px; border-color: #e5e7eb; background-color: #fffffe"> <img src="{{ items.[1].img_url }}" alt="{{ items.[1].title }}" class="sm-h-48" style="max-width: 100%; vertical-align: middle; height: 240px; width: 100%; object-fit: cover" height="240">
+            <div style="height: 100%; overflow: hidden; border-radius: 8px; border-width: 1px; border-color: #e5e7eb; background-color: #fffffe"> <img src="{{ items.[1].img_url }}" alt="{{ items.[1].title }}" style="max-width: 100%; vertical-align: middle; width: 100%; height: auto; display: block; max-height: 240px; object-fit: cover" width="600" height="auto">
               <div style="padding: 24px">
                 <h3 style="margin-bottom: 4px; font-size: 18px; font-weight: 600; color: #1f2937">{{ items.[1].title }}</h3>
                 <p style="margin-bottom: 4px; font-weight: 500; color: #374151">{{ items.[1].start_date }} - {{ items.[1].start_time }}</p>
@@ -93,6 +88,30 @@
               </div>
             </div>
           </div>
+        </div>
+        <div style="width: 100%; background-color: #fef9c3; padding-top: 8px; padding-bottom: 8px">
+          <table style="margin: 8px 24px; width: 100%" cellpadding="0" cellspacing="0" role="none">
+            <tr>
+              <td style="width: 50%; vertical-align: top">
+                <h3 style="margin: 0 0 8px; font-family: Inter, Arial, Helvetica, sans-serif; font-weight: 700; color: #166534">
+                  Gyűjtsd velünk a PET palackokat!
+                </h3>
+                <p style="margin: 0; font-family: Inter, Arial, Helvetica, sans-serif; font-size: 14px; color: #111827">
+                  Minden támogatás számít! Visszaváltott PET palackaiddal is hozzájárulhatsz egy nehéz sorsú gyerkőc táboroztatásához.
+                </p>
+              </td>
+              <td style="width: 50%; text-align: center; vertical-align: top">
+                <p style="margin: 0 0 8px; text-align: center; font-family: Inter, Arial, Helvetica, sans-serif; font-size: 12px; color: #166534">
+                  <strong>P</strong>lusz <strong>E</strong>gy <strong>T</strong>ábor program
+                </p>
+                <img src="https://somer.fra1.digitaloceanspaces.com/somer.hu/uploads/2025/09/21185548/plastic-recycling-64.png" alt="PET palack ikon" style="max-width: 100%; width: 40px; height: 40px; display: inline-block; vertical-align: middle; margin-bottom: 8px" width="40" height="40">
+                <br>
+                <a href="http://somer.hu/50ft" target="_blank" style="margin-bottom: 8px; display: inline-block; border-radius: 8px; background-color: #facc15; padding: 8px 24px; font-family: Inter, Arial, Helvetica, sans-serif; font-size: 18px; font-weight: 700; color: #166534; text-decoration: none">
+                  RePont QR
+                </a>
+              </td>
+            </tr>
+          </table>
         </div>
         <div style="margin-bottom: 32px; padding-left: 16px; padding-right: 16px">
           <h3 style="margin-bottom: 16px; font-size: 20px; font-weight: 600; color: #1f2937">Későbbi programjaink</h3> {{#each items }}
@@ -130,7 +149,7 @@
             <span style="margin-left: 8px; margin-right: 8px">|</span>
             <a href="/unsubscribe_from_list" class="hover-text-somer-600" style="color: #08A0CA; text-decoration: none">Feliratkozás kezelése</a>
             <span style="margin-left: 8px; margin-right: 8px">|</span>
-            <span>Hazak VeÁmác!</span>
+            <span style="color: #1f2937">Házák VeÁmác!</span>
           </div>
           <div style="text-align: center">
             <a href="https://somer.hu" target="_blank" class="hover-text-somer-600" style="color: #08A0CA; text-decoration: none">somer.hu</a>
