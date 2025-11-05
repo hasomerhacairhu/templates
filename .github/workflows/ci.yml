@@ -16,6 +16,9 @@ jobs:
       DO_SPACES_BUCKET: ${{ secrets.DO_SPACES_BUCKET }}
       DO_SPACES_ENDPOINT: ${{ secrets.DO_SPACES_ENDPOINT }}
       DO_SPACES_REGION: ${{ secrets.DO_SPACES_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.DO_SPACES_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.DO_SPACES_SECRET }}
+      AWS_DEFAULT_REGION: ${{ secrets.DO_SPACES_REGION }}
 
     steps:
       - name: Checkout repository
@@ -41,20 +44,15 @@ jobs:
           name: build-artifact
           path: build_production/
 
-      - name: Configure AWS credentials for DO Spaces
-        if: ${{ env.DO_SPACES_KEY != '' && env.DO_SPACES_SECRET != '' && env.DO_SPACES_BUCKET != '' && env.DO_SPACES_ENDPOINT != '' }}
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          aws-access-key-id: ${{ secrets.DO_SPACES_KEY }}
-          aws-secret-access-key: ${{ secrets.DO_SPACES_SECRET }}
-          aws-region: ${{ secrets.DO_SPACES_REGION }}
-
       - name: Install AWS CLI
         if: ${{ env.DO_SPACES_KEY != '' && env.DO_SPACES_SECRET != '' && env.DO_SPACES_BUCKET != '' && env.DO_SPACES_ENDPOINT != '' }}
         run: python3 -m pip install --upgrade awscli
 
       - name: Sync build to DigitalOcean Space
         if: ${{ env.DO_SPACES_KEY != '' && env.DO_SPACES_SECRET != '' && env.DO_SPACES_BUCKET != '' && env.DO_SPACES_ENDPOINT != '' }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.DO_SPACES_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.DO_SPACES_SECRET }}
         run: |
           echo "Syncing build_production/ to DO Space ${DO_SPACES_BUCKET} at ${DO_SPACES_ENDPOINT}"
           aws s3 sync build_production/ s3://${DO_SPACES_BUCKET} --endpoint-url https://${DO_SPACES_ENDPOINT} --acl public-read
