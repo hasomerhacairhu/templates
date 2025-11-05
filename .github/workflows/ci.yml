@@ -10,6 +10,12 @@ jobs:
   build:
     name: Install and build
     runs-on: ubuntu-latest
+    env:
+      DO_SPACES_KEY: ${{ secrets.DO_SPACES_KEY }}
+      DO_SPACES_SECRET: ${{ secrets.DO_SPACES_SECRET }}
+      DO_SPACES_BUCKET: ${{ secrets.DO_SPACES_BUCKET }}
+      DO_SPACES_ENDPOINT: ${{ secrets.DO_SPACES_ENDPOINT }}
+      DO_SPACES_REGION: ${{ secrets.DO_SPACES_REGION }}
 
     steps:
       - name: Checkout repository
@@ -36,7 +42,7 @@ jobs:
           path: build_production/
 
       - name: Configure AWS credentials for DO Spaces
-        if: ${{ secrets.DO_SPACES_KEY != '' && secrets.DO_SPACES_SECRET != '' && secrets.DO_SPACES_BUCKET != '' && secrets.DO_SPACES_ENDPOINT != '' }}
+        if: ${{ env.DO_SPACES_KEY != '' && env.DO_SPACES_SECRET != '' && env.DO_SPACES_BUCKET != '' && env.DO_SPACES_ENDPOINT != '' }}
         uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.DO_SPACES_KEY }}
@@ -44,12 +50,12 @@ jobs:
           aws-region: ${{ secrets.DO_SPACES_REGION }}
 
       - name: Install AWS CLI
-        if: ${{ secrets.DO_SPACES_KEY != '' && secrets.DO_SPACES_SECRET != '' && secrets.DO_SPACES_BUCKET != '' && secrets.DO_SPACES_ENDPOINT != '' }}
+        if: ${{ env.DO_SPACES_KEY != '' && env.DO_SPACES_SECRET != '' && env.DO_SPACES_BUCKET != '' && env.DO_SPACES_ENDPOINT != '' }}
         run: python3 -m pip install --upgrade awscli
 
       - name: Sync build to DigitalOcean Space
-        if: ${{ secrets.DO_SPACES_KEY != '' && secrets.DO_SPACES_SECRET != '' && secrets.DO_SPACES_BUCKET != '' && secrets.DO_SPACES_ENDPOINT != '' }}
+        if: ${{ env.DO_SPACES_KEY != '' && env.DO_SPACES_SECRET != '' && env.DO_SPACES_BUCKET != '' && env.DO_SPACES_ENDPOINT != '' }}
         run: |
           echo "Syncing build_production/ to DO Space ${DO_SPACES_BUCKET} at ${DO_SPACES_ENDPOINT}"
-          aws s3 sync build_production/ s3://${{ secrets.DO_SPACES_BUCKET }} --endpoint-url https://${{ secrets.DO_SPACES_ENDPOINT }} --acl public-read
-          echo "Files should be available at: https://${{ secrets.DO_SPACES_BUCKET }}.${{ secrets.DO_SPACES_ENDPOINT }}/"
+          aws s3 sync build_production/ s3://${DO_SPACES_BUCKET} --endpoint-url https://${DO_SPACES_ENDPOINT} --acl public-read
+          echo "Files should be available at: https://${DO_SPACES_BUCKET}.${DO_SPACES_ENDPOINT}/"
