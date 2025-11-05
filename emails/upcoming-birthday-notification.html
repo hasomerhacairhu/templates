@@ -9,7 +9,7 @@ preheader: Az alábbi táblázatban látod, akiknek a következő héten lesz a 
 <div class="bg-slate-100 sm:px-4 font-sans">
   <table align="center" class="m-0 mx-auto">
     <tr>
-      <td class="w-[1000px] max-w-full">
+      <td class="w-[1200px] max-w-full">
         <x-spacer height="24px" />
 
         <table class="w-full">
@@ -29,47 +29,43 @@ preheader: Az alábbi táblázatban látod, akiknek a következő héten lesz a 
               </p>
 
               
-                <table class="w-full min-w-[640px] border-collapse">
-                    <thead class="bg-slate-50">
-                        <tr>
-                            <th class="text-left text-xs font-semibold text-slate-600 px-3 py-2 uppercase tracking-wide">Név</th>
-                            <th class="text-left text-xs font-semibold text-slate-600 px-3 py-2 uppercase tracking-wide">Becenév</th>
-                            <th class="text-left text-xs font-semibold text-slate-600 px-3 py-2 uppercase tracking-wide">Születésnap</th>
-                            <th class="text-left text-xs font-semibold text-slate-600 px-3 py-2 uppercase tracking-wide">Kor</th>
-                            <th class="text-left text-xs font-semibold text-slate-600 px-3 py-2 uppercase tracking-wide">Telefonszám</th>
-                            <th class="text-left text-xs font-semibold text-slate-600 px-3 py-2 uppercase tracking-wide">Email</th>
-                            <th class="text-left text-xs font-semibold text-slate-600 px-3 py-2 uppercase tracking-wide">Aktív</th>
-                        </tr>
-                    </thead>
+                <table class="w-full border-collapse text-xs leading-tight">
+                  <thead class="bg-slate-50">
+                    <tr>
+                      <th class="text-left text-[11px] font-semibold text-slate-600 px-2 py-1 uppercase tracking-wide">Név</th>
+                      <th class="text-left text-[11px] font-semibold text-slate-600 px-2 py-1 uppercase tracking-wide">Becenév</th>
+                      <th class="text-left text-[11px] font-semibold text-slate-600 px-2 py-1 uppercase tracking-wide">Születésnap</th>
+                      <th class="text-left text-[11px] font-semibold text-slate-600 px-2 py-1 uppercase tracking-wide">Kor</th>
+                      <th class="text-left text-[11px] font-semibold text-slate-600 px-2 py-1 uppercase tracking-wide">Telefonszám</th>
+                      <th class="text-left text-[11px] font-semibold text-slate-600 px-2 py-1 uppercase tracking-wide">Email</th>
+                      <th class="text-left text-[11px] font-semibold text-slate-600 px-2 py-1 uppercase tracking-wide">Aktív</th>
+                    </tr>
+                  </thead>
 
-                    <tbody class="text-sm text-slate-700">
-                        {{#each items}}
-                        <tr class="odd:bg-white even:bg-slate-50 border-b last:border-b-0">
-                            <td class="px-3 py-3 align-top w-1/4">{{ name }}</td>
-                            <td class="px-3 py-3 align-top w-1/6">{{ Nickname }}</td>
-                            <td class="px-3 py-3 align-top w-1/6">{{ BirthDate }}</td>
-                            <td class="px-3 py-3 align-top w-12">{{ Age }}</td>
-                            <td class="px-3 py-3 align-top w-1/5 text-slate-600">{{ phone }}</td>
-                            <td class="px-3 py-3 align-top w-1/4 text-slate-600 break-words">{{ email }}</td>
-                            <td class="px-3 py-3 align-top w-20">
-                                {{#if Active}}
-                                    <span class="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-emerald-100 text-emerald-800">Igen</span>
-                                {{else}}
-                                    <span class="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-slate-100 text-slate-600">Nem</span>
-                                {{/if}}
-                            </td>
-                        </tr>
-                        {{else}}
-                        <tr>
-                            <td colspan="7" class="px-3 py-6"></td>
-                                <div class="mx-auto max-w-[640px] bg-amber-50 border border-amber-100 text-amber-800 rounded-md px-4 py-3 text-center inline-flex items-center gap-3 justify-center">
-                                    <span aria-hidden="true" class="text-lg">🎂</span>
-                                    <span class="font-medium">Ezen a héten nincsenek születésnaposok.</span>
-                                </div>
-                            </td>
-                        </tr>
-                        {{/each}}
-                    </tbody>
+                  <tbody class="text-slate-700">
+                    {{#each items}}
+                    <tr class="odd:bg-white even:bg-slate-50 border-b last:border-b-0">
+                      <td class="px-2 py-2 align-top whitespace-normal break-words">{{ name }}</td>
+                      <td class="px-2 py-2 align-top whitespace-normal break-words">{{ Nickname }}</td>
+                      <td class="px-2 py-2 align-top whitespace-normal">{{ BirthDate }}</td>
+                      <td class="px-2 py-2 align-top ">{{ Age }}</td>
+                      <td class="px-2 py-2 align-top text-slate-600 whitespace-normal break-words">{{ phone }}</td>
+                      <td class="px-2 py-2 align-top text-slate-600 break-words whitespace-normal">{{ email }}</td>
+                      <td class="px-2 py-2 align-top text-center">
+                        {{#if Active}}<span role="img" aria-label="Aktív">✅</span>{{else}}<span role="img" aria-label="Inaktív">❌</span>{{/if}}
+                      </td>
+                    </tr>
+                    {{else}}
+                    <tr>
+                      <td colspan="7" class="px-2 py-3">
+                        <div class="mx-auto max-w-full bg-amber-50 border border-amber-100 text-amber-800 rounded-md px-3 py-2 text-center inline-flex items-center gap-2 justify-center text-sm">
+                          <span aria-hidden="true" class="text-lg">🎂</span>
+                          <span class="font-medium">Ezen a héten nincsenek születésnaposok.</span>
+                        </div>
+                      </td>
+                    </tr>
+                    {{/each}}
+                  </tbody>
                 </table>
               
             <x-signature-haluc-bot/>
