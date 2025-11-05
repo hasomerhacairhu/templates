@@ -52,7 +52,7 @@ preheader: Az alábbi táblázatban látod, akiknek a következő héten lesz a 
                       <td class="px-2 py-2 align-top text-slate-600 whitespace-normal break-words">{{ phone }}</td>
                       <td class="px-2 py-2 align-top text-slate-600 break-words whitespace-normal">{{ email }}</td>
                       <td class="px-2 py-2 align-top text-center">
-                        {{#if Active}}<span role="img" aria-label="Aktív">✅</span>{{else}}<span role="img" aria-label="Inaktív">❌</span>{{/if}}
+                        {{#if IsActive}}<span role="img" aria-label="Aktív">✅</span>{{else}}<span role="img" aria-label="Inaktív">❌</span>{{/if}}
                       </td>
                     </tr>
                     {{else}}
